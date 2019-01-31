@@ -14,6 +14,8 @@
 
 /* Transition Styles */
 
+/* This block of code gives the navigation bar an animated background image when the cursor is hovering over the links. The text of the links also changes from one color to another over the course of .8 seconds. */
+
 nav a {
     background-image: url(ba_target.png);
     background-position: center;
@@ -30,8 +32,118 @@ nav a:hover {
 
 /* Animation Styles */
 
-@keyframes mymove {
+/* This section of code is responsible for the red & blue ball animations. At certain time intervals, the red & blue ball would move across the screen, eventually 'bouncing' off of eachother with their shadows following them. */
+
+@keyframes moveRed {
     0% {
         left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
     }
+
+    49% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 380px;
+        filter: drop-shadow(0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        left: 0px;
+        filter: drop-shadow(-40px 20px 25px rgb(51, 51, 51));
+    }
+}
+
+@keyframes moveBlue {
+    0% {
+        right: 0px;
+        filter: drop-shadow(40px 20px 25px rgb(51, 51, 51));
+    }
+
+    49% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        right: 380px;
+        filter: drop-shadow(0px 0px rgb(51, 51, 51));
+        transform: scaleX(.4);
+    }
+
+    51% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        right: 0px;
+        filter: drop-shadow(120px 20px 25px rgb(51, 51, 51));
+    }
+}
+
+@keyframes showText {
+    0% {
+        opacity: 0;
+    }
+
+    49% {
+        opacity: 0;
+    }
+
+    51% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes hideText {
+    0% {
+        opacity: 1;
+    }
+
+    49% {
+        opacity: 1;
+    }
+
+    51% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* These image & div selectors all have various ids that determine how fast each ball would be going. The animation would be complete in 5 seconds & would go on an infinite loop. */
+
+img#redBall {
+    animation: moveRed 5s linear infinite;
+}
+
+img#blueBall {
+    animation: moveBlue 5s linear infinite;
+}
+
+div#redSpeed1 {
+    animation: redSpeed1 5s linear infinite;
+}
+
+div#blueSpeed1 {
+    animation: blueSpeed1 5s linear infinite;
+}
+
+div#redSpeed2 {
+    animation: redSpeed2 5s linear infinite;
+}
+
+div#blueSpeed2 {
+    animation: blueSpeed2 5s linear infinite;
 }
